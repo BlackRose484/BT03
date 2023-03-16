@@ -5,59 +5,90 @@ int main()
 {
     int r, c;
     cin >> r >> c;
-    int arr[r][c];
+    int a[r][c];
     int temp = 1;
     int i = 0;
     int j = 0;
-    int moc_t = 0;
+    int moc_u = 0;
+    int moc_l = 0;
     int moc_d = 0;
+    int moc_r = 0;
     while (temp <= r * c)
     {
-        while (j < c)
+        while (j + moc_r < c)
         {
-            arr[i][j] = temp;
+            a[i][j] = temp;
             temp++;
             if (temp > r * c)
+            {
                 break;
+            }
             j++;
         }
-        j--;
-        temp--;
-        while (i < r)
+        if (temp > r * c)
         {
-            arr[i][j] = temp++;
+            break;
+        }
+        moc_u++;
+        temp--;
+        j--;
+        while (i + moc_d < r)
+        {
+            a[i][j] = temp;
+            temp++;
             if (temp > r * c)
+            {
                 break;
+            }
             i++;
         }
-        i--;
-        temp--;
-        moc_t++;
-        while (j - moc_d >= 0)
+        if (temp > r * c)
         {
-            arr[i][j] = temp++;
+            break;
+        }
+        moc_r++;
+        temp--;
+        i--;
+        while (j - moc_l >= 0)
+        {
+            a[i][j] = temp;
+            temp++;
             if (temp > r * c)
+            {
                 break;
+            }
             j--;
         }
+        if (temp > r * c)
+        {
+            break;
+        }
+        moc_d++;
         temp--;
         j++;
-        moc_d++;
-        while (i - moc_t >= 0)
+        while (i - moc_u >= 0)
         {
-            arr[i][j] = temp++;
+            a[i][j] = temp;
+            temp++;
             if (temp > r * c)
+            {
                 break;
+            }
             i--;
         }
-        i++;
+        if (temp > r * c)
+        {
+            break;
+        }
+        moc_l++;
         temp--;
+        i++;
     }
     for (int i = 0; i < r; i++)
     {
         for (int j = 0; j < c; j++)
         {
-            cout << arr[i][j] << " ";
+            cout << a[i][j] << " ";
         }
         cout << endl;
     }
