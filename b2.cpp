@@ -22,6 +22,5 @@ int main()
         }
     }
     cout << "No";
-    cout<<"Hello"<<endl;
     system("pause");
 }
